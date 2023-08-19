@@ -1,0 +1,30 @@
+{% extends 'shopapp/base.html' %}
+ {% block title %}
+     Shop index
+    {% endblock %}
+
+ {% block body %}
+     <h1>Hello Shop Index!</h1>
+    <div>
+        <ul>
+            {% for name, price in products %}
+                <li>{{ name }}({{ name|length }}) for ${{ price }}</li>
+                {% if name|length_is:'7' %}
+                    <span>Lucky product!</span>
+                {% else %}
+                    <span>Unlucky product!</span>
+                {% endif %}
+
+            {% empty %}
+                No products here
+            {% endfor %}
+
+        </ul>
+    </div>
+<div>Time now: {{ time_now }}</div>
+
+<div>{% lorem 3 p random %}</div>
+    {% endblock %}
+
+
+
